@@ -10,6 +10,7 @@ require (
 
 require github.com/gorilla/mux v1.8.0 // indirect
 
-replace httpserver => ./httpserver
-
-replace httpclient => ./httpclient
+replace (
+	httpclient => ./httpclient
+	httpserver => ./httpserver
+)

@@ -11,10 +11,6 @@ import (
 	"time"
 )
 
-type HiRsp struct {
-	Name string
-}
-
 func Test(t *testing.T) {
 	httpClientConf := &httpclient.HttpTransportConf{}
 	defaults.Set(httpClientConf)
@@ -38,7 +34,7 @@ func Test(t *testing.T) {
 	srv.HandleFunc("/hi", func(r httpserver.RequestContext) {
 		log.Printf("hi")
 		r.SetJsonResponse(&httpserver.JsonResponse{
-			Data: &HiRsp{
+			Data: &struct{Name string}{
 				Name: "dddd",
 			},
 		})
